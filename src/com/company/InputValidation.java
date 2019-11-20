@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class InputValidation {
 
     public static int validateHour(int hour) {
+        // conversion for users who input values in the 24 hour format
+        if (hour > 12 && hour <= 23) hour = hour - 12;
+        if (hour == 0) hour = 12;
+
         if (hour > 0 && hour < 24) return hour;
         Scanner userInput = new Scanner(System.in);
         boolean isValidNumber = false;
@@ -21,9 +25,7 @@ public class InputValidation {
                 }
             }
 
-        // conversion for users who input values in the 24 hour format
-        if (hour > 12 && hour <= 23) hour = hour - 12;
-        if (hour == 0) hour = 12;
+
 
         return hour;
     }
